@@ -2,6 +2,29 @@ import java.util.*;
 public class uberCab {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter 1 for Customer or 2 for Driver");
+        int n;
+        do{
+            n = sc.nextInt();
+        }while (n != 1 || n != 2);
+
+        if (n == 1){
+            File userFile = new File("/data/customers.txt");
+            System.out.println("Welcome to Uber Cab booking system!");
+            System.out.println("Enter 1 to login or 2 to signup");
+            int m;
+            do{
+                m = sc.nextInt();
+            } while (m != 1 || m != 2);
+            if (m == 1){
+                System.out.print("Enter your username:\t");
+                String user = sc.next();
+                System.out.print("Enter your password:\t");
+                String pwd = sc.next();
+                Customer cr = new Customer(n, l)
+                 
+            }
+        }
         System.out.println("Enter your name");
         String cname = sc.nextLine();
         System.out.println("Enter current location");

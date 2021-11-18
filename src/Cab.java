@@ -5,12 +5,12 @@ public class Cab implements Comparable<Cab>{
     int source[];
 
 
-
     Cab(String r, Driver dr, int l[], int s[]){
         regNum = r;
         driverDetails = dr;
         location = l;
         source = s;
+        
     }
 
 

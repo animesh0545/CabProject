@@ -14,6 +14,8 @@ public class Customer {
         destination = new int[2];
         currentLocation = new int[2];
     }
+
+    
     
     void getName() {
     	System.out.println("Welcome, " + name);
