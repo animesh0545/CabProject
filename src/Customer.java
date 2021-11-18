@@ -1,4 +1,4 @@
-public class Customer extends Login {
+public class Customer {
     private String name;
     int[] location;
     int[] destination;
