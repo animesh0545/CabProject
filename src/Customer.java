@@ -1,4 +1,4 @@
-public class Customer {
+public class Customer extends Login {
     private String name;
     int[] location;
     int[] destination;
@@ -12,6 +12,8 @@ public class Customer {
         name = n;
         location = l;
     }
+
+    
     
     void getName() {
     	System.out.println("Welcome, " + name);

@@ -16,11 +16,11 @@ public class Journey extends City {
 
     void addCabs(){
     	
-    	Cab c1 = new Cab("001", new Driver("A"), new int[] {0, 3}, source);
-        Cab c2 = new Cab("002", new Driver("B"), new int[] {1, 0}, source);
-        Cab c3 = new Cab("003", new Driver("C"), new int[] {3, 3}, source);
-        Cab c4 = new Cab("004", new Driver("D", 4.7), new int[] {4, 1}, source);
-        Cab c5 = new Cab("005", new Driver("E"), new int[] {2, 4}, source);
+    	Cab c1 = new Cab("001", new Driver("A"), new int[] {0, 3}, source, 1);
+        Cab c2 = new Cab("002", new Driver("B"), new int[] {1, 0}, source, 1);
+        Cab c3 = new Cab("003", new Driver("C"), new int[] {3, 3}, source, 1);
+        Cab c4 = new Cab("004", new Driver("D", 4.7), new int[] {4, 1}, source, 1);
+        Cab c5 = new Cab("005", new Driver("E"), new int[] {2, 4}, source, 1);
         cabs.add(c1);
         cabs.add(c2);
         cabs.add(c3);

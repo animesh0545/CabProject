@@ -1,0 +1,5 @@
+A 0.0 0 alpha 123456
+B 4.0 5 bravo qwerty
+C 3.8 7 charlie 192837
+D 4.7 10 disco password
+E 4.1 2 elephant 999000

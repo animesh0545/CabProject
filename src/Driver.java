@@ -1,4 +1,4 @@
-public class Driver {
+public class Driver extends Login{
     String name;
     double rating;
     private int num;
