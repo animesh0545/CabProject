@@ -5,9 +5,9 @@ public class Cab implements Comparable<Cab>{
     int source[];
     //Speed is stored in kmph
     int speed;
-    
+    int status;
 
-    
+
 
     Cab(String r, Driver dr, int l[], int s[]){
         regNum = r;
@@ -15,6 +15,11 @@ public class Cab implements Comparable<Cab>{
         location = l;
         source = s;
         speed = 50;
+        status = 1;
+    }
+
+    void changeStatus() {
+        status  = 0;
     }
 
     int distance(int source[]) {
