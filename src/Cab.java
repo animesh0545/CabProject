@@ -6,12 +6,12 @@ public class Cab implements Comparable<Cab>{
     int status; //0 for busy, 1 for available
     
 
-    Cab(String r, Driver dr, int l[], int s[], int status){
+    Cab(String r, Driver dr, int l[], int s[]){
         regNum = r;
         driverDetails = dr;
         location = l;
         source = s;
-        this.status = status;
+        status = 1;
     }
 
     int distance(int source[]) {
