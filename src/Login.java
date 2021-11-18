@@ -1,4 +1,5 @@
 import java.io.File;
+import java.util.Scanner;
 public class Login {
 
     private String username, password;
@@ -10,7 +11,7 @@ public class Login {
         file = null;
     }
 
-    public Login(String username, Sting password, File f){
+    public Login(String username, String password, File f){
         signUp(username, password);
         file = f;
     }
@@ -30,6 +31,11 @@ public class Login {
     }
 
     boolean login(String user, String pwd){
+        Scanner sc = new Scanner(file);
+        while(sc.hasNext()){
+            String s = sc.nextLine();
+
+        }
         return checkUsername(user) && checkPassword(pwd);
     }
     
