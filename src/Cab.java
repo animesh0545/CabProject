@@ -3,8 +3,7 @@ public class Cab implements Comparable<Cab>{
     Driver driverDetails;
     int location[];
     int source[];
-    
-    
+
 
     Cab(String r, Driver dr, int l[], int s[]){
         regNum = r;
@@ -13,6 +12,7 @@ public class Cab implements Comparable<Cab>{
         source = s;
         
     }
+
 
     int distance(int source[]) {
         int x = Math.abs(source[0] - location[0]);

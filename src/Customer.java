@@ -11,6 +11,8 @@ public class Customer {
     Customer(String n, int l[]){
         name = n;
         location = l;
+        destination = new int[2];
+        currentLocation = new int[2];
     }
 
     

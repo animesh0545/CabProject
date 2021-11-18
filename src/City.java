@@ -29,12 +29,18 @@ public class City {
         
     }
     
-    void display(){
+    void displayGrid(){
     	for (int i = 0; i < 5; i++) {
         	for (int j = 0; j < 5; j++)
         		System.out.print(grid[i][j] + " ");
         	System.out.println();
         }
+        System.out.println();
+    }
+    void deleteGrid(){
+    	for (int j = 0; j <= 5; j++) {
+        	System.out.print("\033[1A");
+    	}
     }
 
     int[] getLandmark(String s){
