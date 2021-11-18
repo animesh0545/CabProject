@@ -3,9 +3,6 @@ public class Cab implements Comparable<Cab>{
     Driver driverDetails;
     int location[];
     int source[];
-    //Speed is stored in kmph
-    int speed;
-    int status;
 
 
 
@@ -14,13 +11,8 @@ public class Cab implements Comparable<Cab>{
         driverDetails = dr;
         location = l;
         source = s;
-        speed = 50;
-        status = 1;
     }
 
-    void changeStatus() {
-        status  = 0;
-    }
 
     int distance(int source[]) {
         int x = Math.abs(source[0] - location[0]);
