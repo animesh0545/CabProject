@@ -1,15 +1,11 @@
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 public class Login {
 
     private String username, password;
     private File file;
+
     Scanner sc;
     // FileWriter fw;
     // BufferedWriter bw;
@@ -31,7 +27,7 @@ public class Login {
         userDetails = "";
         file = f;
         try{
-            pw = new PrintWriter(file);
+            pw = new PrintWriter(new FileOutputStream(file, true));
             sc = new Scanner(file);
         }
         catch(Exception e){
@@ -55,11 +51,14 @@ public class Login {
             }
         }
         try {
-            pw.println(username + " " + password + " " + name);
+            pw.append(username + " " + password + " " + name +"\n");
             System.out.println("Signup complete");
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+        }
+        finally{
+            pw.close();
         }
         return true;
         
@@ -70,16 +69,16 @@ public class Login {
     boolean login(String user, String pwd){
         
         while(sc.hasNextLine()){
-            StringTokenizer st = new StringTokenizer(sc.nextLine());
-            String s = st.nextToken();
-            System.out.println(s);
-            if (s.equals(user)){
+            String s = sc.nextLine();
+            StringTokenizer st = new StringTokenizer(s);
+            if (st.nextToken().equals(user)){
                 if (st.nextToken().equals(pwd)){
-                    userDetails = st.toString().substring(user.length()+pwd.length()+2);
+                    userDetails = s.substring(user.length()+pwd.length()+2);
                     return true;
                 }
             }
         }
+        
         return false;
     }
 

@@ -32,12 +32,13 @@ public class Customer extends Login{
     Customer(String username, String password){
         //location = new int[2];
         super(new File("./../data/customers.txt"));
+        location = new int[2];
+        sc = new Scanner(System.in);
         this.username = username;
         this.password = password;
         //sc = new Scanner(System.in);
         this.customerLogin(); 
-        location = new int[2];
-        sc = new Scanner(System.in);
+        
         
     }
 
