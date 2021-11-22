@@ -63,11 +63,20 @@ public class Customer extends Login{
                 obtainLocation();
                 break;
             }
-            System.out.println("Wrong info, please try again");
+            System.out.println("Wrong info, enter 1 to try again, 2 to go to signUp");
+            int choice = sc.nextInt();
+            sc.nextLine();
             System.out.print("Enter username:\t");
             username = sc.nextLine();
             System.out.print("Enter password:\t");
             password = sc.nextLine();
+            if (choice == 2){
+                System.out.print("Enter name:\t");
+                name = sc.nextLine();
+                customerSignup();
+                break;
+            }
+            
         }
     }
 

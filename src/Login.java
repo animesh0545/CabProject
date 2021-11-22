@@ -11,6 +11,7 @@ public class Login {
     // BufferedWriter bw;
     PrintWriter pw;
     private String userDetails;
+    RandomAccessFile rac;
 
     public Login(){
         username = "";
@@ -18,6 +19,7 @@ public class Login {
         file = null;
         sc = null;
         pw = null;
+        rac = null;
         
         userDetails = "";
     }
@@ -29,6 +31,7 @@ public class Login {
         try{
             pw = new PrintWriter(new FileOutputStream(file, true));
             sc = new Scanner(file);
+            rac = new RandomAccessFile(file, "r");
         }
         catch(Exception e){
             System.out.println(e);
@@ -46,7 +49,7 @@ public class Login {
             System.out.println("NOooooooooooO");
         while (sc.hasNextLine()){
         StringTokenizer st = new StringTokenizer(sc.nextLine());
-            if (st.nextToken().equals(this.username)){
+            if (st.nextToken().equals(username)){
                 return false;
             }
         }
@@ -69,6 +72,7 @@ public class Login {
     boolean login(String user, String pwd){
         
         while(sc.hasNextLine()){
+            //System.out.println("Im here");
             String s = sc.nextLine();
             StringTokenizer st = new StringTokenizer(s);
             if (st.nextToken().equals(user)){
@@ -78,7 +82,20 @@ public class Login {
                 }
             }
         }
-        
+
+        sc.close();
+        try {
+            sc = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        };
+        // try {
+        //     pw.append("\033[3A");
+        // } catch (Exception e) {
+        //     // TODO Auto-generated catch block
+        //     e.printStackTrace();
+        // }
         return false;
     }
 
