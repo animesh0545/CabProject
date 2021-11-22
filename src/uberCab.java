@@ -2,39 +2,51 @@ import java.util.*;
 public class uberCab {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter 1 for Customer or 2 for Driver");
-        int n;
+        
+        int n=1;
         do{
+            System.out.println("Enter 1 for Customer or 2 for Driver");
             n = sc.nextInt();
-        }while (n != 1 || n != 2);
+            //System.out.println(n);
+        }while (n != 1 && n != 2);
+
+        Customer customer = null;
 
         if (n == 1){
-            File userFile = new File("/data/customers.txt");
-            System.out.println("Welcome to Uber Cab booking system!");
-            System.out.println("Enter 1 to login or 2 to signup");
-            int m;
+
+            int m = 0;
+
             do{
+                System.out.println("Enter 1 for SignUp and 2 for Login");
                 m = sc.nextInt();
-            } while (m != 1 || m != 2);
+
+            }while (m != 1 && m != 2);
+
+            System.out.print("Enter your username:\t");
+            String username = sc.next();
+            System.out.print("Enter password\t");
+            String password = sc.next();
+            System.out.println(username + "\t" + password);
+
             if (m == 1){
-                System.out.print("Enter your username:\t");
-                String user = sc.next();
-                System.out.print("Enter your password:\t");
-                String pwd = sc.next();
-                Customer cr = new Customer(n, l)
+                System.out.println("Enter your name");
+                String cname = sc.next();
+                customer = new Customer(cname, username, password);
+            }
+            else
+                customer = new Customer(username, password);
+
                  
             }
+        
+        else{
+            //TODO
         }
-        System.out.println("Enter your name");
-        String cname = sc.nextLine();
-        System.out.println("Enter current location");
-        int x = sc.nextInt();
-        int y = sc.nextInt();
-        int l1[] = {x, y};
-        Customer c = new Customer(cname, l1);
+        
+        int l1[] = customer.getLocation();
         System.out.println("Enter landmark");
         String lm = sc.next();
-        c.getName();
+        
         City ct = new City();
         int l2[] = ct.getLandmark(lm);
         System.out.println("Landmark to reach: "+ lm + "[Coordinates: ("+l2[0] + "," + l2[1] + ")]");
