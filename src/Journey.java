@@ -1,5 +1,7 @@
 
 //import java.util.Comparator;
+import java.util.*;
+import java.io.*;
 import java.time.format.DateTimeFormatter;  
 import java.time.LocalDateTime;
 
@@ -20,21 +22,72 @@ public class Journey extends City {
 	}
 
     void addCabs(){
+		File file = new File("./../data/drivers.txt"); 
+		Scanner sc = null;
+		try {
+			sc = new Scanner(file);
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		String driverName = null;
+		String regisNo = null;
+		String userName = null;
+		double rating = 0.0;
+		int numRated = 0;
+		int cabLocation[] = new int[2];
+		Cab cabObj = null;
+		while(sc.hasNextLine()){
+			
+            //System.out.println("Im here");
+            String s = sc.nextLine();
+            StringTokenizer st = new StringTokenizer(s);
+            int l = st.countTokens();
+			if(l < 8) {
+				for(int i = 0; i < l; i++) {
+					String detail = st.nextToken();
+					if(i == 0)
+						userName = detail;
+					if(i == 2)
+						driverName = detail;
+					if(i == 3)
+						rating = Double.parseDouble(detail);
+					if(i == 4)
+						numRated = Integer.parseInt(detail);
+					if(i == 5)
+						regisNo = detail;
+					if(i == 6) {
+						cabLocation[0] = Integer.parseInt(detail.substring(0, detail.indexOf('_')));
+						cabLocation[1] = Integer.parseInt(detail.substring(detail.indexOf('_')+1));
+					}
+				}
+				cabObj = new Cab(regisNo, new Driver(userName, driverName, rating, numRated), new int[] {cabLocation[0], cabLocation[1]}, source);
+				cabs.add(cabObj);
+			}
+        }
+
+        sc.close();
+        try {
+            sc = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        };
     	
-    	Cab c1 = new Cab("001", new Driver("D1"), new int[] {0, 3}, source);
-        Cab c2 = new Cab("002", new Driver("D2"), new int[] {1, 0}, source);
-        Cab c3 = new Cab("003", new Driver("D3"), new int[] {3, 3}, source);
-        Cab c4 = new Cab("004", new Driver("D4"), new int[] {4, 1}, source);
-        Cab c5 = new Cab("005", new Driver("D5"), new int[] {2, 4}, source);
-        cabs.add(c1);
-        cabs.add(c2);
-        cabs.add(c3);
-        cabs.add(c4);
-        cabs.add(c5);
+    	// Cab c1 = new Cab("001", new Driver("D1"), new int[] {0, 3}, source);
+        // Cab c2 = new Cab("002", new Driver("D2"), new int[] {1, 0}, source);
+        // Cab c3 = new Cab("003", new Driver("D3"), new int[] {3, 3}, source);
+        // Cab c4 = new Cab("004", new Driver("D4"), new int[] {4, 1}, source);
+        // Cab c5 = new Cab("005", new Driver("D5"), new int[] {2, 4}, source);
+        // cabs.add(c1);
+        // cabs.add(c2);
+        // cabs.add(c3);
+        // cabs.add(c4);
+        // cabs.add(c5);
         System.out.println("Choose from the following available cabs: ");
 		int i = 1;
         for (Cab c:cabs) {
-        	System.out.println(i + ". " + "Registration no.: " + c.regNum + ", Driver's Name: " + c.driverDetails.name + ", Distance from you: " + c.distance(source) + ", Location: (" + c.location[0] + ", " + c.location[1] + "), Rating: " + c.driverDetails.rating);
+        	System.out.println(i + ". " + "Registration no.: " + c.regNum + ", Driver's Name: " + c.driverDetails.getName() + ", Distance from you: " + c.distance(source) + ", Location: (" + c.location[0] + ", " + c.location[1] + "), Rating: " + c.driverDetails.rating);
         	i++;
         }
 		cl = new int[2];

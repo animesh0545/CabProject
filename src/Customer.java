@@ -63,8 +63,15 @@ public class Customer extends Login{
                 obtainLocation();
                 break;
             }
-            System.out.println("Wrong info, enter 1 to try again, 2 to go to signUp");
-            int choice = sc.nextInt();
+            int choice;
+            System.out.print("Wrong info, enter 1 to try again, 2 to go to signUp: ");
+            while(true) {
+                choice = sc.nextInt();
+                if(choice == 1 || choice == 2)
+                    break;
+                else
+                    System.out.print("Enter 1 to login or enter 2 to signup: ");
+            }
             sc.nextLine();
             System.out.print("Enter username:\t");
             username = sc.nextLine();
