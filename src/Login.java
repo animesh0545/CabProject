@@ -42,8 +42,6 @@ public class Login {
     boolean signUp(String username, String password, String name){
         /* Append username and password to the file after 
         ensuring that it has not been already used */
-        // if (sc == null)
-        //     System.out.println("NOooooooooooO");
         while (sc.hasNextLine()){
         StringTokenizer st = new StringTokenizer(sc.nextLine());
             if (st.nextToken().equals(username)){
