@@ -214,7 +214,7 @@ This class provides blueprint for the cabs. It contains variables like `String r
 
 ---
 
-## Some sample test cases
+## Running a sample test case
 
 ---
 
