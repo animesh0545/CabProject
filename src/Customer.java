@@ -14,7 +14,12 @@ public class Customer extends Login{
         
     }
 
-    
+    String getUserName() {
+        return username;
+    }
+    String getPassword() {
+        return password;
+    }
     
     Customer(String name, String username, String password) {
         
@@ -49,9 +54,10 @@ public class Customer extends Login{
                 break;
             }
             System.out.println("The username already exists, please try again");
-            System.out.print("Enter username:\t");
-            username = sc.nextLine();
-            System.out.print("Enter password:\t");
+            System.out.print("Enter username: ");
+            username = sc.next();
+            sc.nextLine();
+            System.out.print("Enter password: ");
             password = sc.nextLine();
         }
     }
@@ -73,13 +79,17 @@ public class Customer extends Login{
                     System.out.print("Enter 1 to login or enter 2 to signup: ");
             }
             sc.nextLine();
-            System.out.print("Enter username:\t");
-            username = sc.nextLine();
-            System.out.print("Enter password:\t");
+            System.out.print("Enter username: ");
+            username = sc.next();
+            sc.nextLine();
+            System.out.print("Enter password: ");
             password = sc.nextLine();
             if (choice == 2){
-                System.out.print("Enter name:\t");
-                name = sc.nextLine();
+                System.out.print("Enter your first name: ");
+                String fname = sc.next();
+                System.out.print("Enter your last name: ");
+                String lname = sc.next();
+                name = fname + "_" + lname;
                 customerSignup();
                 break;
             }
@@ -90,8 +100,8 @@ public class Customer extends Login{
     
     
     public void obtainLocation() {
-    	System.out.println("Welcome, " + name);
-        System.out.println("Enter your location");
+    	System.out.println("Welcome, " + name.substring(0, name.indexOf('_')) + " " + name.substring(name.indexOf('_')+1));
+        System.out.print("Enter your location: ");
         location[0] = sc.nextInt();
         location[1] = sc.nextInt();
 

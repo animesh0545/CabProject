@@ -2,8 +2,6 @@
 //import java.util.Comparator;
 import java.util.*;
 import java.io.*;
-import java.time.format.DateTimeFormatter;  
-import java.time.LocalDateTime;
 
 import java.util.TreeSet;
 
@@ -11,12 +9,12 @@ public class Journey extends City {
     int source[];
     int dest[];
     int cl[];
-	double fare;
+	// double fare;
 
     TreeSet<Cab> cabs = new TreeSet<>();
     
     Thread t;
-    
+    //Calculates distance between source and destination
 	int distance() {
 		return Math.abs(source[0]- dest[0]) + Math.abs(source[1] - dest[1]);
 	}
@@ -62,9 +60,11 @@ public class Journey extends City {
 					}
 				}
 				cabObj = new Cab(regisNo, new Driver(userName, driverName, rating, numRated), new int[] {cabLocation[0], cabLocation[1]}, source);
+				
 				cabs.add(cabObj);
 			}
         }
+		// fare = fare/cabs.size();
 
         sc.close();
         try {
@@ -84,10 +84,19 @@ public class Journey extends City {
         // cabs.add(c3);
         // cabs.add(c4);
         // cabs.add(c5);
+		int numCabs = cabs.size();
+		if(numCabs == 0) {
+			System.out.println("Sorry, no cabs available at the moment");
+			return;
+		}
         System.out.println("Choose from the following available cabs: ");
 		int i = 1;
         for (Cab c:cabs) {
-        	System.out.println(i + ". " + "Registration no.: " + c.regNum + ", Driver's Name: " + c.driverDetails.getName() + ", Distance from you: " + c.distance(source) + ", Location: (" + c.location[0] + ", " + c.location[1] + "), Rating: " + c.driverDetails.rating);
+			c.calcFare(distance(), numCabs);
+			String dname = c.driverDetails.getName();
+			String fdname = dname.substring(0, dname.indexOf("_"));
+			String ldname = dname.substring(dname.indexOf("_")+1);
+        	System.out.println(i + ". " + "Registration no.: " + c.regNum + ", Driver's Name: " + fdname + " " + ldname + ", Distance from you: " + c.distance(source) + ", Location: (" + c.location[0] + ", " + c.location[1] + "), Fare charged: " + (int)c.fare + ", Rating: " + String.format("%.2f", c.driverDetails.rating));
         	i++;
         }
 		cl = new int[2];
@@ -97,17 +106,9 @@ public class Journey extends City {
         source = l1;
         dest = l2; 
 		cl = new int[2];
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
-   		LocalDateTime now = LocalDateTime.now();  
-		String currentDateTime = dtf.format(now);
-		int hh = Integer.parseInt(currentDateTime.substring(currentDateTime.indexOf(" ")+1, currentDateTime.indexOf(":")));
-		int factor;
-		if(hh >= 8 && hh < 21)
-			factor = 100;
-		else
-			factor = 70;
-		fare = factor*distance();
-        //addCabs();
+		
+		// fare = factor*distance();
+        // addCabs();
         
     }
 	// @Override
@@ -115,7 +116,7 @@ public class Journey extends City {
 
 	// }
     
-    void travel(int[] initialCoord, int[] finalCoord, int customerSeated) {
+    void travel(int[] initialCoord, int[] finalCoord, char customerSeated) {
     	
     	t = new Thread() {
     		public void run() {
@@ -125,11 +126,15 @@ public class Journey extends City {
     			while(i-finalCoord[0] != 0) {
         			grid[i][initialCoord[1]] = customerSeated;
 					// eta(distance());
-					System.out.println("ETA: " + timeInSec + " sec");
+					if(timeInSec >= 10)
+						System.out.println("ETA: " + timeInSec + " sec");
+					else
+						System.out.println("ETA: 0" + timeInSec + " sec");
+
 					timeInSec--;
         			displayGrid();
         			try {
-        				Thread.sleep(2000);
+        				Thread.sleep(1000);
         			} catch(InterruptedException e) {
         				e.printStackTrace();
         			}
@@ -142,7 +147,7 @@ public class Journey extends City {
     					}
     				}
     				if(lmflag == 0) {
-    					grid[i][initialCoord[1]] = 0;
+    					grid[i][initialCoord[1]] = '0';
     				}
     		    	deleteGrid();
 					System.out.print("\033[1A");
@@ -159,11 +164,14 @@ public class Journey extends City {
     			while(j-finalCoord[1] != 0) {
         			grid[i][j] = customerSeated;
 					// System.out.println("ETA: " + )
-					System.out.println("ETA: " + timeInSec + " sec");
+					if(timeInSec >= 10)
+						System.out.println("ETA: " + timeInSec + " sec");
+					else
+						System.out.println("ETA: 0" + timeInSec + " sec");
 					timeInSec--;
         			displayGrid();
         			try {
-        				Thread.sleep(2000);
+        				Thread.sleep(1000);
         			} catch(InterruptedException e) {
         				e.printStackTrace();
         			}
@@ -176,7 +184,7 @@ public class Journey extends City {
     					}
     				}
 					if(lmflag == 0) {
-    					grid[i][j] = 0;
+    					grid[i][j] = '0';
     				}
     		    	deleteGrid();
 					System.out.print("\033[1A");
@@ -188,8 +196,8 @@ public class Journey extends City {
     					
     		}
 
-			grid[i][j] = 9;
-			System.out.println("Cab is here");
+			grid[i][j] = customerSeated;
+			System.out.println("Cab reached");
 			displayGrid();
     			
     	};

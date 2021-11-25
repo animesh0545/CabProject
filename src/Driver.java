@@ -12,6 +12,9 @@ public class Driver extends Login {
     String getUsername() {
         return username;
     }
+    String getPassword() {
+        return password;
+    }
 
     Driver(String username, String name, double rating, int num){
         this.username = username;
@@ -75,7 +78,8 @@ public class Driver extends Login {
             }
             System.out.println("Wrong info entered, please try again");
             System.out.print("Enter username: ");
-            username = in.nextLine();
+            username = in.next();
+            in.nextLine();
             System.out.print("Enter password: ");
             password = in.nextLine();
         }

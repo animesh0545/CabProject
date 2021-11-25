@@ -1,8 +1,14 @@
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime;
+
+
+
 public class Cab implements Comparable<Cab>{
     String regNum;
     Driver driverDetails;
     int location[];
     int source[];
+    double fare;
 
 
     Cab(String r, Driver dr, int l[], int s[]){
@@ -10,10 +16,24 @@ public class Cab implements Comparable<Cab>{
         driverDetails = dr;
         location = l;
         source = s;
+        fare = 0;
         
     }
+    void calcFare(int dist, int numCabs) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+        LocalDateTime now = LocalDateTime.now();  
+        String currentDateTime = dtf.format(now);
+        int hh = Integer.parseInt(currentDateTime.substring(currentDateTime.indexOf(" ")+1, currentDateTime.indexOf(":")));
+        double factor;
+        if(hh >= 8 && hh < 21)
+            factor = 100;
+        else
+            factor = 70;
+        dist = dist+distance(source);
+        fare = factor*dist/numCabs;
+    }
 
-
+    //Calculates distance between cab location and source
     int distance(int source[]) {
         int x = Math.abs(source[0] - location[0]);
         int y = Math.abs(source[1] - location[1]);

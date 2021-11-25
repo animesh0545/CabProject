@@ -2,9 +2,9 @@ public class Landmark {
     
     String name;
     int location[];
-    int id;
+    char id;
 
-    Landmark(String n, int l[], int id){
+    Landmark(String n, int l[], char id){
         name = n;
         location = l;
         this.id = id;
