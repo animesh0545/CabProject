@@ -172,7 +172,7 @@ public class uberCab {
                     }
 
                     //once the journey is over, the customer would pay the generated fare and rate the journey
-                    System.out.println("Fare to be paid: " + (int)cab.fare);
+                    System.out.println("Fare to be paid: Rs" + (int)cab.fare);
                     System.out.print("Rate the driver(0-5.0): ");
                     double rating = sc.nextDouble();
                     d.notification(Double.toString(rating));
@@ -399,7 +399,7 @@ public class uberCab {
                     cab.calcFare(j.distance(), numCabs);
 
                     //the amount of fare received and the rating received will be displayed to the driver
-                    System.out.println("Fare received: " + (int)cab.fare);
+                    System.out.println("Fare received: Rs " + (int)cab.fare);
                     System.out.println("Rating received: " + currRating);
 
                 }           

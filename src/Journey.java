@@ -78,7 +78,7 @@ public class Journey extends City {
 			String dname = c.driverDetails.getName();
 			String fdname = dname.substring(0, dname.indexOf("_"));
 			String ldname = dname.substring(dname.indexOf("_")+1);
-        	System.out.println(i + ". " + "Registration no.: " + c.regNum + ", Driver's Name: " + fdname + " " + ldname + ", Distance from you: " + c.distance(source) + ", Location: (" + c.location[0] + ", " + c.location[1] + "), Fare charged: " + (int)c.fare + ", Rating: " + String.format("%.2f", c.driverDetails.rating));
+        	System.out.println(i + ". " + "Registration no.: " + c.regNum + ", Driver's Name: " + fdname + " " + ldname + ", Distance from you: " + c.distance(source) + " km, Location: (" + c.location[0] + ", " + c.location[1] + "), Fare charged: Rs " + (int)c.fare + ", Rating: " + String.format("%.2f", c.driverDetails.rating));
         	i++;
         }
 		cl = new int[2];
@@ -182,7 +182,9 @@ public class Journey extends City {
 
 	}
 
-	// 36 seconds in real life is shown to be equivalent to 1 second for this project.
+	//speed of every cab is kept at 50 kmph
+	//distance between two adjacent cells in the grid is kept to be 1 km
+	//72 seconds in real life is shown to be equivalent to 1 second for this project.
 	//distance is input in km
 	int eta(int distance) {
 		return distance;
