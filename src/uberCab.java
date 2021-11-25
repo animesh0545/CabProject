@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class UberCab {
+public class uberCab {
 
     //main function for execution
     public static void main(String[] args) {
