@@ -1,10 +1,12 @@
 public class Landmark {
     
+    //Landmark data members
     String name;
     int location[];
-    int id;
+    char id;
 
-    Landmark(String n, int l[], int id){
+    //Landmark parameterized constructor
+    Landmark(String n, int l[], char id){
         name = n;
         location = l;
         this.id = id;
