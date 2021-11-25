@@ -218,6 +218,35 @@ This class provides blueprint for the cabs. It contains variables like `String r
 
 ---
 
+Note that the drivers' data and customers' data are stored in their seperate files in `data` directory and the same has to be used to signup and login as driver or customer.
+
+Initially inside the `data/customers.txt` file:-
+
+```
+utkarsh1729 pass123 Utkarsh_Yashvardhan
+animesh222 qwerty11 Animesh_Bhargava
+harsh007 ABC@CBA Harsh_Butani
+shubham331 wannaDaNcE2 Shubham_Keshari
+chinchin7 alphaQ1Q Chinmay_Kumar
+raju88 iamrajuuu Raju_Rastogi
+mike11 passss Mike_Scott
+light21 pawser12 Light_Yagami
+
+```
+
+Initially inside the `data/drivers.txt` file (The data beside driver's name denotes the current rating of driver, the number of people who have rated the driver, the registration number of the driver and the initial location of the driver respectively):-
+
+```
+alpha11 123456 Vinay_Jain 4.50 2 001 2_3
+bravo32 qwerty Ishvit_Bhasin 4.01 8 002 14_5
+charlie90 192837 Ritik_Thakur 4.17 12 003 8_6
+disco43 password Ishu_Kumar 4.71 10 004 5_5
+elephant222 999000 Mihir_Srivastava 3.81 4 005 9_9
+jamesbond007 qwwee11 Sahil_Gupta 3.09 4 006 12_10
+givemehope01 hehehe1 Saksham_Mahajan 2.56 6 007 1_14
+
+```
+
 The execution of the program from customer's side:-
 
 ```
@@ -356,4 +385,3 @@ yashvardhan@YASHVARDHANs-MacBook-Pro bin %
 The following is how interaction between the driver's and the customer's program takes place (observe how taking input on one user's end affects the program on both the user's end):-
 
 https://user-images.githubusercontent.com/59053792/143475807-b9cb7506-5575-48d1-b45a-6a039184170c.mov
-
