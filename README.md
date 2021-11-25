@@ -218,4 +218,143 @@ This class provides blueprint for the cabs. It contains variables like `String r
 
 ---
 
-![cust_1](https://imgur.com/a/M9T7z1K)
+<!-- ![cust_1](https://i.imgur.com/BTupDfC.png) -->
+
+The execution of the program from customer's side:-
+
+```
+yashvardhan@YASHVARDHANs-MacBook-Pro bin % java UberCab
+Enter 1 for Customer or 2 for Driver: 1
+Enter 1 for SignUp and 2 for Login: 2
+Enter your username: utkarsh1729
+Enter password: pass111
+Wrong info, enter 1 to try again, 2 to go to signUp: 2
+Enter username: utkarsh1729
+Enter password: pass111
+Enter your first name: Light
+Enter your last name: Yagami
+The username already exists, please try again
+Enter username: light21
+Enter password: pawser12
+Signup complete
+Welcome, Light Yagami
+Enter your location: 4 4
+Choose destination to reach among the below mentioned landmarks:
+1. FD=III
+2. Mal-A Bhawan
+3. Ram Bhawan
+4. Krishna Bhawan
+5. Shankar Bhawan
+6. SR Bhawan
+7. FD-II
+8. LTC
+9. FD-I
+Enter valid choice: 8
+Landmark to reach: LTC(8) [Coordinates: (13,12)]
+Choose from the following available cabs:
+1. Registration no.: 004, Driver's Name: Ishu Kumar, Distance from you: 2 km, Location: (5, 5), Fare charged: Rs 271, Rating: 4.71
+2. Registration no.: 001, Driver's Name: Vinay Jain, Distance from you: 3 km, Location: (2, 3), Fare charged: Rs 285, Rating: 4.50
+3. Registration no.: 003, Driver's Name: Ritik Thakur, Distance from you: 6 km, Location: (8, 6), Fare charged: Rs 328, Rating: 4.17
+4. Registration no.: 005, Driver's Name: Mihir Srivastava, Distance from you: 10 km, Location: (9, 9), Fare charged: Rs 385, Rating: 3.81
+5. Registration no.: 002, Driver's Name: Ishvit Bhasin, Distance from you: 11 km, Location: (14, 5), Fare charged: Rs 400, Rating: 4.01
+6. Registration no.: 007, Driver's Name: Saksham Mahajan, Distance from you: 13 km, Location: (1, 14), Fare charged: Rs 428, Rating: 2.56
+7. Registration no.: 006, Driver's Name: Sahil Gupta, Distance from you: 14 km, Location: (12, 10), Fare charged: Rs 442, Rating: 3.09
+Choose any one Cab to travel: 5
+Cab is arriving...
+Cab reached
+0 0 0 0 0 0 0 0 7 0 0 0 0 0 0
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 6
+0 0 0 0 - 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 4 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 5 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 9 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 2 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 8 0 0
+0 0 0 0 0 0 0 0 0 0 3 0 0 0 0
+
+Cab travelling to destination...
+Cab reached
+0 0 0 0 0 0 0 0 7 0 0 0 0 0 0
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 6
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 4 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 5 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 9 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 2 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 + 0 0
+0 0 0 0 0 0 0 0 0 0 3 0 0 0 0
+
+Fare to be paid: Rs400
+Rate the driver(0-5.0): 4
+yashvardhan@YASHVARDHANs-MacBook-Pro bin %
+```
+
+The execution of the program from driver's side:-
+
+```
+yashvardhan@YASHVARDHANs-MacBook-Pro bin % java UberCab
+Enter 1 for Customer or 2 for Driver: 2
+Enter 1 to Login: 1
+Enter your username: bravo32
+Enter password: qwertt
+Wrong info entered, please try again
+Enter username: bravo32
+Enter password: qwerty
+Notification received, customer calling at coordinates: (4, 4). Requesting to reach LTC(8), coordinates: (13, 12)
+Press Y to accept: Y
+Cab reached
+0 0 0 0 0 0 0 0 7 0 0 0 0 0 0
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 6
+0 0 0 0 - 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 4 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 5 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 9 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 2 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 8 0 0
+0 0 0 0 0 0 0 0 0 0 3 0 0 0 0
+
+Press 1 to start trip: 1
+Cab travelling to destination...
+Cab reached
+0 0 0 0 0 0 0 0 7 0 0 0 0 0 0
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 6
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 4 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 5 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 9 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 2 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 + 0 0
+0 0 0 0 0 0 0 0 0 0 3 0 0 0 0
+
+Fare received: Rs 400
+Rating received: 4.0
+yashvardhan@YASHVARDHANs-MacBook-Pro bin %
+```
+
+The following is the how interaction between the driver's and the customer's program takes place:-
+
+![cust_vid](https://drive.google.com/file/d/1hwZ_xXtAJAB637MnFtPCZSMjUiGpk8C8/view?usp=sharing)
