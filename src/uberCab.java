@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class uberCab {
+public class UberCab {
 
     //main function for execution
     public static void main(String[] args) {
@@ -41,6 +41,8 @@ public class uberCab {
                 System.out.print("Enter your last name: ");
                 String lname = sc.next();
                 customer = new Customer(fname + "_" + lname, username, password);
+                username = customer.getUserName();
+                password = customer.getPassword();
             }
             else {
                 customer = new Customer(username, password);
@@ -172,7 +174,7 @@ public class uberCab {
                     }
 
                     //once the journey is over, the customer would pay the generated fare and rate the journey
-                    System.out.println("Fare to be paid: Rs" + (int)cab.fare);
+                    System.out.println("Fare to be paid: Rs " + (int)cab.fare);
                     System.out.print("Rate the driver(0-5.0): ");
                     double rating = sc.nextDouble();
                     d.notification(Double.toString(rating));
@@ -252,7 +254,10 @@ public class uberCab {
             //if flag is 1 then the notification is received and will be displayed
             //Then the driver would be prompted to enter if he/she accepts the request
             if(flag == 1) {
-                System.out.println("Notification received, customer calling at coordinates: (" + coorCust[0] + ", " + coorCust[1] + "). Requesting to reach coordinates: (" + destCust[0] + ", " + destCust[1] + ")");
+                City c = new City();
+                char id = c.grid[destCust[0]][destCust[1]];
+                String lmName = c.getLandmarkNameFromID(id);
+                System.out.println("Notification received, customer calling at coordinates: (" + coorCust[0] + ", " + coorCust[1] + "). Requesting to reach " + lmName + "(" + id + "), coordinates: (" + destCust[0] + ", " + destCust[1] + ")");
                 char accept = ' ';
                 while(accept != 'Y') {
                     System.out.print("Press Y to accept: ");
