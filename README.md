@@ -214,7 +214,7 @@ This class provides blueprint for the cabs. It contains variables like `String r
 
 ---
 
-## Some sample test cases
+## Running a sample test case
 
 ---
 
@@ -353,7 +353,7 @@ Rating received: 4.0
 yashvardhan@YASHVARDHANs-MacBook-Pro bin %
 ```
 
-The following is how interaction between the driver's and the customer's program takes place (observe what happens when the driver presses enter after entering 'Y' when the app prompts him/her to do so):-
+The following is how interaction between the driver's and the customer's program takes place (observe how taking input on one user's end affects the program on both the user's end):-
 
-https://user-images.githubusercontent.com/59053792/143472290-95a3b84e-6d58-4124-9e0d-fce656590b72.mov
+https://user-images.githubusercontent.com/59053792/143475807-b9cb7506-5575-48d1-b45a-6a039184170c.mov
 
