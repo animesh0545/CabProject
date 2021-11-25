@@ -45,6 +45,10 @@ The summary of how the app functions is given as follows:-
 
 1. The code uses certain escape sequences which CANNOT run on *Eclipse* due to certain bugs associated with Eclipse. It is recommended that the code be run on **VSCode**.
 2. The jar file can be executed to run the code. However, since the project requires the use of .txt files, which are stored in a folder named **data**, the jar file *must* be executed from within the **src** folder.
+3. The jar file can be executed (from the src folder) by running the following command in the terminal:
+   ```
+   java -jar UberCabProject.jar
+   ```
 
 ---
 
