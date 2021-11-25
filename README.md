@@ -1,4 +1,9 @@
 # Project 14: Uber Cab Booking System
+---
+## Authors (Group No. 41)
+- Animesh Bhargava (2019B3A70545P)
+- Utkarsh Yashvardhan (2019B4A70704P)
+---
 
 ## Description
 
@@ -34,6 +39,12 @@ The summary of how the app functions is given as follows:-
 11. Once the destination is reached on the grid, the customer's app will prompt him/her to pay the generated fare and rate the journey.
 
 12. Once the customer pays the fare and rates the journey, the driver's app will display the fare received and the rating received.
+
+---
+# Information about running the code
+
+1. The code uses certain escape sequences which CANNOT run on *Eclipse* due to certain bugs associated with Eclipse. It is recommended that the code be run on **VSCode**.
+2. The jar file can be executed to run the code. However, since the project requires the use of .txt files, which are stored in a folder named **data**, the jar file *must* be executed from within the **src** folder.
 
 ---
 
