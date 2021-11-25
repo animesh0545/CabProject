@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # Project 14: Uber Cab Booking System
 
 ## Description
@@ -28,4 +26,4 @@ This project implements a basic system to manage cab booking from both customer'
 - Once the driver accepts the customer's request, he/she starts moving towards the customer with a constant speed. **The driver's location along with the ETA is dynamically displayed on the app on both customer's side and driver's side.**
 
 - Once the driver reaches the customer's location, the app prompts
->>>>>>> branch
+
