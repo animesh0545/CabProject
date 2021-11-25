@@ -41,6 +41,12 @@ The summary of how the app functions is given as follows:-
 12. Once the customer pays the fare and rates the journey, the driver's app will display the fare received and the rating received.
 
 ---
+# Information about running the code
+
+1. The code uses certain escape sequences which CANNOT run on *Eclipse* due to certain bugs associated with Eclipse. It is recommended that the code be run on **VSCode**.
+2. The jar file can be executed to run the code. However, since the project requires the use of .txt files, which are stored in a folder named **data**, the jar file *must* be executed from within the **src** folder.
+
+---
 
 ## Assumptions
 
