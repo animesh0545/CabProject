@@ -1,4 +1,4 @@
-alpha11 123456 Vinay_Jain 0.00 0 001 12_12
+alpha11 123456 Vinay_Jain 4.50 2 001 9_1
 bravo32 qwerty Ishvit_Bhasin 4.01 6 002 7_3
 charlie90 192837 Ritik_Thakur 4.17 12 003 7_3
 disco43 password Ishu_Kumar 4.71 10 004 2_8

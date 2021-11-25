@@ -1,5 +1,0 @@
-alpha 123456 D1_L1 0.0 0 001 0_3
-bravo qwerty D2_L2 4.0 5 002 1_0
-charlie 192837 D3_L3 3.8 7 003 3_3
-disco password D4_L4 4.7 10 004 4_1 1_2 1_2
-elephant 999000 D5_L5 4.1 2 005 2_4

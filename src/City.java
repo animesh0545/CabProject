@@ -2,6 +2,7 @@ import java.util.*;
 
 public class City {
     
+    //data members of city class
     ArrayList<Landmark> lmk = new ArrayList<>();
     Landmark l1 = new Landmark("FD=III", new int[] {1, 2}, '1');
     Landmark l2 = new Landmark("Mal-A Bhawan", new int[] {10, 2}, '2');
@@ -13,6 +14,7 @@ public class City {
     Landmark l8 = new Landmark("LTC", new int[] {13, 12}, '8');
     Landmark l9 = new Landmark("FD-I", new int[] {9, 1}, '9');
 
+    //function to add landmarks to the ArrayList
     void addLandmarks(){
         lmk.add(l1);
         lmk.add(l2);
@@ -27,7 +29,8 @@ public class City {
 
     char grid[][];
 
-    City(){
+    //constructor
+    public City(){
         grid = new char[15][15];
         for(char[] arr : grid) 
             Arrays.fill(arr, '0');
@@ -35,10 +38,10 @@ public class City {
         for (Landmark l:lmk){
             grid[l.location[0]][l.location[1]] = l.id;
         }
-        // displayGrid();
         
     }
     
+    //function to display the city grid
     void displayGrid(){
     	for (int i = 0; i < 15; i++) {
         	for (int j = 0; j < 15; j++)
@@ -47,12 +50,15 @@ public class City {
         }
         System.out.println();
     }
+
+    //function to remove the city grid from display
     void deleteGrid(){
     	for (int j = 0; j <= 15; j++) {
         	System.out.print("\033[1A");
     	}
     }
 
+    //function to get landmark location from landmark name
     int[] getLandmarkLocation(String s){
         for (Landmark l : lmk) {
             if (s.equals(l.name))
@@ -61,7 +67,7 @@ public class City {
         return new int[] {-1, -1};
     }
 
-
+    //function to get landmark location from landmark ID
     int[] getLandmarkLocationFromID(char c){
         for (Landmark l : lmk) {
             if (c == l.id)
@@ -70,6 +76,7 @@ public class City {
         return new int[] {-1, -1};
     }
 
+    //function to get landmark name from landmark ID
     String getLandmarkNameFromID(char c){
         for (Landmark l : lmk) {
             if (c == l.id)

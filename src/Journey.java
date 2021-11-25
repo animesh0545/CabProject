@@ -1,31 +1,27 @@
-
-//import java.util.Comparator;
 import java.util.*;
 import java.io.*;
-
-import java.util.TreeSet;
 
 public class Journey extends City {
     int source[];
     int dest[];
     int cl[];
-	// double fare;
-
-    TreeSet<Cab> cabs = new TreeSet<>();
-    
+    TreeSet<Cab> cabs = new TreeSet<>(); 
     Thread t;
+
+
     //Calculates distance between source and destination
 	int distance() {
 		return Math.abs(source[0]- dest[0]) + Math.abs(source[1] - dest[1]);
 	}
 
+	//function to add available cabs from the database to the TreeSet and display them
+	//appropriate message is displayed if no cab is available at the moment
     void addCabs(){
 		File file = new File("./../data/drivers.txt"); 
 		Scanner sc = null;
 		try {
 			sc = new Scanner(file);
 		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		String driverName = null;
@@ -37,7 +33,6 @@ public class Journey extends City {
 		Cab cabObj = null;
 		while(sc.hasNextLine()){
 			
-            //System.out.println("Im here");
             String s = sc.nextLine();
             StringTokenizer st = new StringTokenizer(s);
             int l = st.countTokens();
@@ -60,30 +55,17 @@ public class Journey extends City {
 					}
 				}
 				cabObj = new Cab(regisNo, new Driver(userName, driverName, rating, numRated), new int[] {cabLocation[0], cabLocation[1]}, source);
-				
 				cabs.add(cabObj);
 			}
         }
-		// fare = fare/cabs.size();
 
         sc.close();
         try {
             sc = new Scanner(file);
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         };
     	
-    	// Cab c1 = new Cab("001", new Driver("D1"), new int[] {0, 3}, source);
-        // Cab c2 = new Cab("002", new Driver("D2"), new int[] {1, 0}, source);
-        // Cab c3 = new Cab("003", new Driver("D3"), new int[] {3, 3}, source);
-        // Cab c4 = new Cab("004", new Driver("D4"), new int[] {4, 1}, source);
-        // Cab c5 = new Cab("005", new Driver("D5"), new int[] {2, 4}, source);
-        // cabs.add(c1);
-        // cabs.add(c2);
-        // cabs.add(c3);
-        // cabs.add(c4);
-        // cabs.add(c5);
 		int numCabs = cabs.size();
 		if(numCabs == 0) {
 			System.out.println("Sorry, no cabs available at the moment");
@@ -100,22 +82,17 @@ public class Journey extends City {
         	i++;
         }
 		cl = new int[2];
-        // cl = cabs.first().location;
     }
+
+	//parameterized constructor
     Journey(int l1[], int l2[]){
         source = l1;
         dest = l2; 
 		cl = new int[2];
 		
-		// fare = factor*distance();
-        // addCabs();
-        
     }
-	// @Override
-	// void displayGrid() {
-
-	// }
     
+	//function to display dynamically the current positions of cab and customer
     void travel(int[] initialCoord, int[] finalCoord, char customerSeated) {
     	
     	t = new Thread() {
@@ -125,7 +102,6 @@ public class Journey extends City {
     			int i = initialCoord[0]; 
     			while(i-finalCoord[0] != 0) {
         			grid[i][initialCoord[1]] = customerSeated;
-					// eta(distance());
 					if(timeInSec >= 10)
 						System.out.println("ETA: " + timeInSec + " sec");
 					else
@@ -158,12 +134,11 @@ public class Journey extends City {
     					i++;
     				
     			
-    		}
+    			}
 
 				int j = initialCoord[1];
     			while(j-finalCoord[1] != 0) {
         			grid[i][j] = customerSeated;
-					// System.out.println("ETA: " + )
 					if(timeInSec >= 10)
 						System.out.println("ETA: " + timeInSec + " sec");
 					else
@@ -194,82 +169,23 @@ public class Journey extends City {
     				else
     					j++;
     					
-    		}
+    			}
 
-			grid[i][j] = customerSeated;
-			System.out.println("Cab reached");
-			displayGrid();
+				grid[i][j] = customerSeated;
+				System.out.println("Cab reached");
+				displayGrid();
     			
-    	};
+    		};
     	
-    };
-
-
+    	};
     	t.start();
-}
 
-// 36 seconds in real life is shown to be equivalent to 1 seconds for this project.
-//distance is input in km
-int eta(int distance) {
-	return distance;
-        // t = new Thread() {
-            // public void run() {
-                //speed is in kmps
-                // int speed = 50;
-                // double time = (double)distance/speed;
-                // int timeInSec = (int)(time*60*60);
-                // timeInSec /= 72;
-				// return timeInSec;
-                // for(int i = timeInSec; i > 0; i--) {
-                //     if(i < 10) {
-                //             System.out.print(i + " sec");
-                //             System.out.print("\b\b\b\b\b");
-                //         }
-                //         else if(i >= 10 && i <= 99) {
-                //             System.out.print(i + " sec");
-                //             System.out.print("\b\b\b\b\b\b");
-                //         }
-                //         else if(i >= 100 && i <= 999) {
-                //             System.out.print(i + " sec");
-                //             System.out.print("\b\b\b\b\b\b\b");
-                //         }
-                //         else {
-                //             System.out.print(i + " sec");
-                //             System.out.print("\b\b\b\b\b\b\b\b");
-                //         }
-                //         try	{
-                //             Thread.sleep(1000);
-                //         } catch(Exception e) {
-                //             e.printStackTrace();
-                //         }
-                // }
-               
-                // int hr = timeInSec/3600;
-                // timeInSec %= 3600;
-                // int min = timeInSec/60;
-                // timeInSec %= 60;
-                // int sec = timeInSec;
-                // while(!(hr == 0 && min == 0 && sec == 0)) {
-                // 	if(hr != 0) {
-                // 		if(hr < 10) {
-                // 			System.out.print(hr + " hr");
-                // 			System.out.print("\b\b\b\b");
-                // 		}
-                // 	}
-                // }
-            // }
-        // };
-    
-        // t.start();
-    }
+	}
 
+	// 36 seconds in real life is shown to be equivalent to 1 second for this project.
+	//distance is input in km
+	int eta(int distance) {
+		return distance;
+	}
 
 }
-
-
-// class SortByDistance implements Comparator<Cab>{
-//     public int compare(Cab a, Cab b){
-//         return a.distance() - b.distance();
-//     }
-// }
-

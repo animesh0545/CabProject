@@ -1,36 +1,40 @@
 import java.util.*;
 import java.io.*;
 public class uberCab {
+
+    //main function for execution
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
         int n=1;
+        //taking value to detect if the user is customer or driver
         do{
             System.out.print("Enter 1 for Customer or 2 for Driver: ");
             n = sc.nextInt();
-            //System.out.println(n);
         }while (n != 1 && n != 2);
 
         Customer customer = null;
         Driver driver = null;
 
+        //if the user is customer then perform the following actions
         if (n == 1){
-
             int m = 0;
 
+            //checking if the customer wants to login or signup
             do{
                 System.out.print("Enter 1 for SignUp and 2 for Login: ");
                 m = sc.nextInt();
 
             }while (m != 1 && m != 2);
 
+            //login and signup both would require the following details
             System.out.print("Enter your username: ");
             String username = sc.next();
             sc.nextLine();
             System.out.print("Enter password: ");
             String password = sc.nextLine();
-            // System.out.println(username + "\t" + password);
 
+            //if the customer want to login then he/she has to enter his/her first and last name
             if (m == 1){
                 System.out.print("Enter your first name: ");
                 String fname = sc.next();
@@ -44,6 +48,7 @@ public class uberCab {
                 password = customer.getPassword();
             }
 
+                //get customer location and display the landmarks among which he/she has to choose from as destination
                 int l1[] = customer.getLocation();
                 City city = new City();
                 System.out.println("Choose destination to reach among the below mentioned landmarks: ");
@@ -53,6 +58,7 @@ public class uberCab {
                 int l2[] = {-1, -1};
                 char ch = '!';
                 
+                //this loop will run if the choice entered is invalid
                 while(l2[0] == -1 && l2[1] == -1) {
                     System.out.print("Enter valid choice: ");
                     ch = sc.next().charAt(0);
@@ -61,6 +67,9 @@ public class uberCab {
                 String lmName = city.getLandmarkNameFromID(ch);
                 
                 System.out.println("Landmark to reach: " + lmName + "(" + ch + ") [Coordinates: ("+l2[0] + "," + l2[1] + ")]");
+
+                //once the landmark destination is entered, a list of available drivers would be displayed to the customer
+                //if no cab is available then appropriate message would be displayed
                 Journey j = new Journey(l1, l2);
                 j.addCabs();
                 if(j.cabs.size() == 0) {
@@ -68,31 +77,27 @@ public class uberCab {
                     return;
                 }
 
+                //customer would choose among the given cabs
                 System.out.print("Choose any one Cab to travel: ");
                 int cabToTravel = sc.nextInt();
+
+                //once the customer chooses a cab, a notification would be sent to the chosen driver
                 ArrayList<Cab> cabList = new ArrayList<Cab>(j.cabs);
-                // for(int i = 0; i < cabList.size(); i++) {
-                //     System.out.println(cabList.get(i).driverDetails.name);
-                // }
                 Cab cab = cabList.get(cabToTravel-1);
                 Driver d = cab.driverDetails;
                 d.notification(l1[0] + "_" + l1[1]);
                 d.notification(l2[0] + "_" + l2[1]);
                 
+                //this loop will go on until the driver accepts customer's request
                 String token = "";
                 outer: while(true) {
                     Scanner scan = null;
                     try {
                         scan = new Scanner(new File("./../data/drivers.txt"));
-                        // System.out.println("**********************");
         
                     } catch (FileNotFoundException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
-                    // System.out.println("**********************");
-        
-        
         
                     while(scan.hasNextLine()) {
                         String detail = scan.nextLine();
@@ -113,9 +118,10 @@ public class uberCab {
                     }
                     scan.close();
                 }
-                // System.out.println("Cab is arriving...");
 
+                //if the driver accepts the request, then the foolowing code would be executed
                 if(token.equals("Y")) {
+                    //driver would start travelling towards customer
                     j.grid[l1[0]][l1[1]] = 'x';
                     System.out.println("Cab is arriving...");
                     j.cl[0] = cabList.get(cabToTravel-1).location[0];
@@ -123,28 +129,21 @@ public class uberCab {
 
                     j.travel(j.cl, j.source, '-');
                     
-                    
-
                     try {
                         j.t.join();
                     } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
 
+                    //once the driver reaches the customer, the customer would wait until the driver starts the journey
                     Scanner scan = null;
                     outer: while(true) {
                         try {
                             scan = new Scanner(new File("./../data/drivers.txt"));
-                            // System.out.println("**********************");
             
                         } catch (FileNotFoundException e) {
-                            // TODO Auto-generated catch block
                             e.printStackTrace();
                         }
-                        // System.out.println("**********************");
-            
-            
             
                         while(scan.hasNextLine()) {
                             String detail = scan.nextLine();
@@ -163,30 +162,31 @@ public class uberCab {
                         scan.close();
                     }
 
+                    //once the driver starts the journey, the customer and driver both would start moving towards the destination
                     System.out.println("Cab travelling to destination...");
                     j.travel(l1, l2, '+');
                     try {
                         j.t.join();
                     } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
 
+                    //once the journey is over, the customer would pay the generated fare and rate the journey
                     System.out.println("Fare to be paid: " + (int)cab.fare);
                     System.out.print("Rate the driver(0-5.0): ");
                     double rating = sc.nextDouble();
                     d.notification(Double.toString(rating));
                 }
 
-
-
                 sc.close();
         }
         
+        //if the user is driver then perform the following actions
         else{
             //TODO
             int m = 0;
 
+            //this loop will run until the driver enters 1 to login
             do{
                 System.out.print("Enter 1 to Login: ");
                 m = sc.nextInt();
@@ -194,29 +194,25 @@ public class uberCab {
 
             }while (m != 1);
 
+            //the driver would be prompted to enter his/her login credentials until some credential matches one in the database file
             System.out.print("Enter your username: ");
             String username = sc.next();
             sc.nextLine();
             System.out.print("Enter password: ");
             String password = sc.nextLine();
-            // System.out.println(username + "\t" + password);
             driver = new Driver(username, password);
             username = driver.getUsername();
             password = driver.getPassword();
-            // System.out.println("**********************");
             
             Scanner scan = null;
             try {
                 scan = new Scanner(new File("./../data/drivers.txt"));
-                // System.out.println("**********************");
 
             } catch (FileNotFoundException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            // System.out.println("**********************");
 
-
+            //once the driver logs in, he/she will receive a notification if a customer is calling him/her to go somewhere
             int coorCust[] = new int[2];
             int destCust[] = new int[2];
             int coorDriver[] = new int[2];
@@ -231,7 +227,6 @@ public class uberCab {
                 int l = st.countTokens();
                 
                 if(uName.equals(username) && l >= 8) {
-                    // System.out.println("**********************");
                     flag = 1;
                     for(int i = 0; i < l; i++) {
                         String s = st.nextToken();
@@ -254,27 +249,28 @@ public class uberCab {
                     break;
                 }
             }
+            //if flag is 1 then the notification is received and will be displayed
+            //Then the driver would be prompted to enter if he/she accepts the request
             if(flag == 1) {
                 System.out.println("Notification received, customer calling at coordinates: (" + coorCust[0] + ", " + coorCust[1] + "). Requesting to reach coordinates: (" + destCust[0] + ", " + destCust[1] + ")");
-                
                 char accept = ' ';
                 while(accept != 'Y') {
                     System.out.print("Press Y to accept: ");
                     accept = sc.nextLine().charAt(0);
                 }
 
+                //if the driver accepts the request, then the following lines would be executed
                 if(accept == 'Y') {
                     driver.notification("Y");
                     Journey j = new Journey(coorCust, destCust);
                     j.grid[coorCust[0]][coorCust[1]] = 'x';
                     Cab cab = new Cab(regisNo, driver, coorDriver, coorCust);
+                    //here we are trying to find the number of cabs currently available for fare calculation
                     int numCabs = 0;
                     try {
                         scan = new Scanner(new File("./../data/drivers.txt"));
-                        // System.out.println("**********************");
         
                     } catch (FileNotFoundException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
 
@@ -288,18 +284,17 @@ public class uberCab {
                     }
                     numCabs++;
 
-
-
-
+                    //once the driver accepts the request, he/she will start moving towards customer
                     j.travel(coorDriver, coorCust, '-');
                     // j.addCabs();
                     
                     try {
                         j.t.join();
                     } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
+
+                    //once the driver reaches the customer, he/she will be asked to start the trip
                     int startTrip = 0;
                     while(startTrip != 1) {
                     System.out.print("Press 1 to start trip: ");
@@ -307,31 +302,27 @@ public class uberCab {
                     }
 
                     driver.notification("S");
+
+                    //once the driver responds 'yes' to start trip, he/she along with the customer will start moving towards destination
                     System.out.println("Cab travelling to destination...");
                     j.travel(coorCust, destCust, '+');
 
                     try {
                         j.t.join();
                     } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
 
-
-                    String token = "";
+                    // String token = "";
+                    //once the trip finishes, the driver will wait for the customer to pay the generated fare and rate the journey
                     outer: while(true) {
                         Scanner scann = null;
                         try {
                             scann = new Scanner(new File("./../data/drivers.txt"));
-                            // System.out.println("**********************");
             
                         } catch (FileNotFoundException e) {
-                            // TODO Auto-generated catch block
                             e.printStackTrace();
                         }
-                        // System.out.println("**********************");
-            
-            
             
                         while(scann.hasNextLine()) {
                             String detail = scann.nextLine();
@@ -342,23 +333,21 @@ public class uberCab {
                             if(uname.equals(driver.getUsername())) {
                                 int l = st.countTokens();
                                 if(l == 11) {
-                                    for(int i = 0; i < l; i++) {
-                                        token = st.nextToken();
-                                    }
+                                    // for(int i = 0; i < l; i++) {
+                                    //     token = st.nextToken();
+                                    // }
                                     break outer;
                                 }
-    
                             }
                         }
                         scann.close();
                     }
 
-
+                    //once the trip is over and the driver has been rated, the info about driver's availability, current position and current rating will change
                     PrintWriter pw = null;
                     try {
                         sc = new Scanner(new File("./../data/drivers.txt"));
                     } catch (FileNotFoundException e1) {
-                        // TODO Auto-generated catch block
                         e1.printStackTrace();
                     }
                     String data = "";
@@ -369,7 +358,6 @@ public class uberCab {
                         String uName = "";
                         if(st.countTokens()!=0) {
                             uName = st.nextToken();
-                            // data += uName + " ";
                         }
                         if(uName.equals(driver.getUsername())) {
                             data += uName + " ";
@@ -400,11 +388,8 @@ public class uberCab {
                     }
                     try {
                         pw = new PrintWriter(new File("./../data/drivers.txt"));
-                        // System.out.println(this.username);
-                        // System.out.println(data);
                         pw.print(data);
                     } catch (FileNotFoundException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                     finally {
@@ -412,14 +397,16 @@ public class uberCab {
                         pw.close();
                     }
                     cab.calcFare(j.distance(), numCabs);
-                    // System.out.println("*****************j.distance(): " + j.distance() + " numCabs " + numCabs);
+
+                    //the amount of fare received and the rating received will be displayed to the driver
                     System.out.println("Fare received: " + (int)cab.fare);
                     System.out.println("Rating received: " + currRating);
-
 
                 }           
 
             }
+
+            //if no notification is received, then the following message will be displayed to the driver
             else {
                 System.out.println("No new notification received");
             }

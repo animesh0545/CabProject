@@ -1,8 +1,6 @@
 import java.time.format.DateTimeFormatter;  
 import java.time.LocalDateTime;
 
-
-
 public class Cab implements Comparable<Cab>{
     String regNum;
     Driver driverDetails;
@@ -10,7 +8,7 @@ public class Cab implements Comparable<Cab>{
     int source[];
     double fare;
 
-
+    //cab parameterized constructor
     Cab(String r, Driver dr, int l[], int s[]){
         regNum = r;
         driverDetails = dr;
@@ -19,6 +17,8 @@ public class Cab implements Comparable<Cab>{
         fare = 0;
         
     }
+
+    //function to calculate fare.
     void calcFare(int dist, int numCabs) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
         LocalDateTime now = LocalDateTime.now();  
@@ -41,6 +41,7 @@ public class Cab implements Comparable<Cab>{
         return x + y;
     }
 
+    // overridden compareTo function.
     @Override
     public int compareTo(Cab c) {
     	int x = this.distance(source) - c.distance(source);
@@ -51,12 +52,6 @@ public class Cab implements Comparable<Cab>{
 		if (y != 0)
 			return y;
 		
-		return this.regNum.compareTo(c.regNum);
-    	
-    		 
+		return this.regNum.compareTo(c.regNum);	 
     }
-    
-   
-
-
 }

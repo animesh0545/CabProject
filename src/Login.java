@@ -5,14 +5,12 @@ public class Login {
 
     private String username, password;
     private File file;
-
-    Scanner sc;
-    // FileWriter fw;
-    // BufferedWriter bw;
-    PrintWriter pw;
     private String userDetails;
+    Scanner sc;
+    PrintWriter pw;
     RandomAccessFile rac;
 
+    //default constructor
     public Login(){
         username = "";
         password = "";
@@ -20,12 +18,11 @@ public class Login {
         sc = null;
         pw = null;
         rac = null;
-        
         userDetails = "";
     }
 
+    //parameterized constructor
     public Login(File f){
-        
         userDetails = "";
         file = f;
         try{
@@ -41,7 +38,7 @@ public class Login {
 
     }
     
-
+    //signup function to add the details of the new customer to the file database and return if sugnup was successful or not
     boolean signUp(String username, String password, String name){
         /* Append username and password to the file after 
         ensuring that it has not been already used */
@@ -57,7 +54,6 @@ public class Login {
             pw.append(username + " " + password + " " + name +"\n");
             System.out.println("Signup complete");
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         finally{
@@ -67,12 +63,9 @@ public class Login {
         
     }
 
-       
-
+    //login function to verify if the given username and password are in the database or not
     boolean login(String user, String pwd){
-        
         while(sc.hasNextLine()){
-            //System.out.println("Im here");
             String s = sc.nextLine();
             StringTokenizer st = new StringTokenizer(s);
             if (st.nextToken().equals(user)){
@@ -87,18 +80,12 @@ public class Login {
         try {
             sc = new Scanner(file);
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         };
-        // try {
-        //     pw.append("\033[3A");
-        // } catch (Exception e) {
-        //     // TODO Auto-generated catch block
-        //     e.printStackTrace();
-        // }
         return false;
     }
 
+    //function to get user details from database
     String getDetails(){
         return userDetails;
     }
