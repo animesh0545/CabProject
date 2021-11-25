@@ -218,8 +218,6 @@ This class provides blueprint for the cabs. It contains variables like `String r
 
 ---
 
-<!-- ![cust_1](https://i.imgur.com/BTupDfC.png) -->
-
 The execution of the program from customer's side:-
 
 ```
@@ -355,6 +353,4 @@ Rating received: 4.0
 yashvardhan@YASHVARDHANs-MacBook-Pro bin %
 ```
 
-The following is the how interaction between the driver's and the customer's program takes place:-
-
-![cust_vid](https://drive.google.com/file/d/1hwZ_xXtAJAB637MnFtPCZSMjUiGpk8C8/view?usp=sharing)
+The following is how interaction between the driver's and the customer's program takes place (observe what happens when the driver presses enter after entering 'Y' when the app prompts him/her to do so):-
