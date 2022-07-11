@@ -6,6 +6,8 @@
 ---
 Demonstration videos of the project can be found [here](https://drive.google.com/drive/folders/1Ty3xC4j6TkC7OOE4ab4UsWfZhg2ce5Qb?usp=sharing).
 
+Also, the document having critical analysis of our code for OOP principles is named **SelfEvaluation.md** and can be found in the main folder.
+
 ---
 ## Description
 
