@@ -1,4 +1,4 @@
-# Project 14: Uber Cab Booking System
+# Project 14: Cab Booking System
 ---
 ## Authors (Group No. 41)
 - Animesh Bhargava (2019B3A70545P)
