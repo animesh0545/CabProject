@@ -15,18 +15,18 @@ Also, the document having critical analysis of our code for OOP principles is na
 
 ---
 - [Description](#Description)
-- [Information about running the code](https://github.com/animesh0545/CabProject/edit/main/README.md#information-about-running-the-code)
-- [Assumptions](https://github.com/animesh0545/CabProject/edit/main/README.md#assumptions)
-- [Brief description of each class developed](https://github.com/animesh0545/CabProject/edit/main/README.md#brief-description-of-each-class-developed)
-   * [class UberCab](https://github.com/animesh0545/CabProject/edit/main/README.md#class-ubercab)
-   * [class Login](https://github.com/animesh0545/CabProject/edit/main/README.md#class-login)
-   * [class Landmark](https://github.com/animesh0545/CabProject/edit/main/README.md#class-landmark)
-   * [class Journey](https://github.com/animesh0545/CabProject/edit/main/README.md#class-journey)
-   * [class Driver](https://github.com/animesh0545/CabProject/edit/main/README.md#class-driver)
-   * [class Customer](https://github.com/animesh0545/CabProject/edit/main/README.md#class-customer)
-   * [class City](https://github.com/animesh0545/CabProject/edit/main/README.md#class-city)
-   * [class Cab](https://github.com/animesh0545/CabProject/edit/main/README.md#class-cab)
-- [Running a sample test case](https://github.com/animesh0545/CabProject/edit/main/README.md#running-a-sample-test-case)
+- [Information about running the code](#Information_about_running_the_code)
+- [Assumptions](#Assumptions)
+- [Brief description of each class developed](#Brief_description_of_each_class_developed)
+   * [class UberCab](#class_UberCab)
+   * [class Login](#class_Login)
+   * [class Landmark](#class_Landmark)
+   * [class Journey](#class_Journey)
+   * [class Driver](#class_Driver)
+   * [class Customer](#class_Customer)
+   * [class City](#class_City)
+   * [class Cab](#class_Cab)
+- [Running a sample test case](#Running_a_sample_test_case)
 ---
 
 ## Description
