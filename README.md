@@ -14,10 +14,10 @@ Also, the document having critical analysis of our code for OOP principles is na
 # Table of Contents
 
 ---
-- [Description](#Description)
+- [Description](https://github.com/animesh0545/CabProject/blob/main/README.md#description)
 - [Information about running the code](https://github.com/animesh0545/CabProject/blob/main/README.md#information-about-running-the-code)
-- [Assumptions](#Assumptions)
-- [Brief description of each class developed](#Brief_description_of_each_class_developed)
+- [Assumptions](https://github.com/animesh0545/CabProject/blob/main/README.md#assumptions)
+- [Brief description of each class developed](https://github.com/animesh0545/CabProject/blob/main/README.md#brief-description-of-each-class-developed)
    * [class UberCab](#class_UberCab)
    * [class Login](#class_Login)
    * [class Landmark](#class_Landmark)
