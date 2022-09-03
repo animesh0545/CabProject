@@ -4,11 +4,31 @@
 - Animesh Bhargava (2019B3A70545P)
 - Utkarsh Yashvardhan (2019B4A70704P)
 ---
+
 Demonstration videos of the project can be found [here](https://drive.google.com/drive/folders/1Ty3xC4j6TkC7OOE4ab4UsWfZhg2ce5Qb?usp=sharing).
 
 Also, the document having critical analysis of our code for OOP principles is named **SelfEvaluation.md** and can be found in the main folder.
 
 ---
+
+# Table of Contents
+
+---
+1. [Description](https://github.com/animesh0545/CabProject/edit/main/README.md#description)
+2. [Information about running the code](https://github.com/animesh0545/CabProject/edit/main/README.md#information-about-running-the-code)
+3. [Assumptions](https://github.com/animesh0545/CabProject/edit/main/README.md#assumptions)
+4. [Brief description of each class developed](https://github.com/animesh0545/CabProject/edit/main/README.md#brief-description-of-each-class-developed)
+   1. [class UberCab](https://github.com/animesh0545/CabProject/edit/main/README.md#class-ubercab)
+   2. [class Login](https://github.com/animesh0545/CabProject/edit/main/README.md#class-login)
+   3. [class Landmark](https://github.com/animesh0545/CabProject/edit/main/README.md#class-landmark)
+   4. [class Journey](https://github.com/animesh0545/CabProject/edit/main/README.md#class-journey)
+   5. [class Driver](https://github.com/animesh0545/CabProject/edit/main/README.md#class-driver)
+   6. [class Customer](https://github.com/animesh0545/CabProject/edit/main/README.md#class-customer)
+   7. [class City](https://github.com/animesh0545/CabProject/edit/main/README.md#class-city)
+   8. [class Cab](https://github.com/animesh0545/CabProject/edit/main/README.md#class-cab)
+5. [Running a sample test case](https://github.com/animesh0545/CabProject/edit/main/README.md#running-a-sample-test-case)
+---
+
 ## Description
 
 ---
@@ -43,9 +63,11 @@ The summary of how the app functions is given as follows:-
 11. Once the destination is reached on the grid, the customer's app will prompt him/her to pay the generated fare and rate the journey.
 
 12. Once the customer pays the fare and rates the journey, the driver's app will display the fare received and the rating received.
+---
+
+## Information about running the code
 
 ---
-# Information about running the code
 
 1. The code uses certain escape sequences which CANNOT run on *Eclipse* due to certain bugs associated with Eclipse. It is recommended that the code be run on **VSCode**.
 2. The jar file can be executed to run the code. However, since the project requires the use of .txt files, which are stored in a folder named **data**, the jar file *must* be executed from within the **src** folder.
@@ -53,7 +75,6 @@ The summary of how the app functions is given as follows:-
    ```
    java -jar UberCabProject.jar
    ```
-
 ---
 
 ## Assumptions
@@ -178,7 +199,6 @@ fare = totalDistance*factor/numCabs
 ```
 
 15. Once the driver drops the customer at his/her desired destination and receives the generated fare and trip rating from him/her, the driver's initial location will change to the final destination of the previous customer for the future customers.
-
 ---
 
 ## Brief description of each class developed
