@@ -15,7 +15,7 @@ Also, the document having critical analysis of our code for OOP principles is na
 
 ---
 - [Description](https://github.com/animesh0545/CabProject/blob/main/README.md#description)
-- [Information about running the code](#information-about-running-the-code)
+- [Information about running the code](https://github.com/animesh0545/CabProject/blob/main/README.md#information-about-running-the-code)
 - [Assumptions](https://github.com/animesh0545/CabProject/blob/main/README.md#assumptions)
 - [Brief description of each class developed](https://github.com/animesh0545/CabProject/blob/main/README.md#brief-description-of-each-class-developed)
    * [class UberCab](https://github.com/animesh0545/CabProject/blob/main/README.md#class-ubercab)
