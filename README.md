@@ -14,10 +14,10 @@ Also, the document having critical analysis of our code for OOP principles is na
 # Table of Contents
 
 ---
-* [Description](https://github.com/animesh0545/CabProject/edit/main/README.md#description)
-* [Information about running the code](https://github.com/animesh0545/CabProject/edit/main/README.md#information-about-running-the-code)
-* [Assumptions](https://github.com/animesh0545/CabProject/edit/main/README.md#assumptions)
-* [Brief description of each class developed](https://github.com/animesh0545/CabProject/edit/main/README.md#brief-description-of-each-class-developed)
+- [Description](#Description)
+- [Information about running the code](https://github.com/animesh0545/CabProject/edit/main/README.md#information-about-running-the-code)
+- [Assumptions](https://github.com/animesh0545/CabProject/edit/main/README.md#assumptions)
+- [Brief description of each class developed](https://github.com/animesh0545/CabProject/edit/main/README.md#brief-description-of-each-class-developed)
    * [class UberCab](https://github.com/animesh0545/CabProject/edit/main/README.md#class-ubercab)
    * [class Login](https://github.com/animesh0545/CabProject/edit/main/README.md#class-login)
    * [class Landmark](https://github.com/animesh0545/CabProject/edit/main/README.md#class-landmark)
@@ -26,7 +26,7 @@ Also, the document having critical analysis of our code for OOP principles is na
    * [class Customer](https://github.com/animesh0545/CabProject/edit/main/README.md#class-customer)
    * [class City](https://github.com/animesh0545/CabProject/edit/main/README.md#class-city)
    * [class Cab](https://github.com/animesh0545/CabProject/edit/main/README.md#class-cab)
-* [Running a sample test case](https://github.com/animesh0545/CabProject/edit/main/README.md#running-a-sample-test-case)
+- [Running a sample test case](https://github.com/animesh0545/CabProject/edit/main/README.md#running-a-sample-test-case)
 ---
 
 ## Description
